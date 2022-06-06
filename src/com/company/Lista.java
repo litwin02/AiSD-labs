@@ -1,6 +1,7 @@
 package com.company;
 
 public class Lista{
+
     ObiektListy pierwszy = null;
 
     void drukuj(){
@@ -21,8 +22,8 @@ public class Lista{
             }
             bieżący=bieżący.następny;
         }
-
     }
+
     private static class ObiektListy{
         Osoba element;
         ObiektListy następny = null;
@@ -46,8 +47,8 @@ public class Lista{
 
         obiekt.pierwszy.następny.element.imię = "Onufry";
         obiekt.pierwszy.następny.następny.element.dataUr = "1410-07-14";
-//        obiekt.zamien("Wielki", 200);
-//        System.out.println("NOWA LISTA PO ZAMIANIE: ");
+        obiekt.zamien("Wielki", 200);
+        System.out.println("NOWA LISTA PO ZAMIANIE: ");
         obiekt.drukuj();
     }
 }

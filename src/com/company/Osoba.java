@@ -9,11 +9,10 @@ import java.util.Locale;
 public class Osoba implements Comparable<Osoba> {
     @Override
     public int compareTo(Osoba o) {
-        Collator c = Collator.getInstance(new Locale("pl", "PL"));
-        int porównanieNazwisk = c.compare(this.nazwisko, o.nazwisko);
-        int porównanieImion = c.compare(this.imię, o.imię);
-        if (porównanieNazwisk == 0) return porównanieImion;
-        return porównanieNazwisk;
+        double rW = this.wiek(this.dataUr)-o.wiek(o.dataUr);
+        if(rW>0) return 1;
+        else if(rW<0) return -1;
+        else return 0;
     }
 
     String nazwisko = "Kowalski";
@@ -27,7 +26,7 @@ public class Osoba implements Comparable<Osoba> {
 
     @Override
     public String toString() {
-        return nazwisko + " " + imię + " " + dataUr + " wiek " + String.format("%5.2f\n", wiek(dataUr));
+        return nazwisko + " " + imię + " " + dataUr + " wiek " + String.format("%5.2f", wiek(dataUr));
     }
 
     double wiek(String dataUr) {
